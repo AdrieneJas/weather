@@ -47,7 +47,7 @@ gem "bootstrap"
 
 gem "sassc-rails"
 
-
+gem 'json', '~> 2.6', '>= 2.6.3'
 # Use Sass to process CSS
 # gem "sassc-rails"
 

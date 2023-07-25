@@ -1,5 +1,17 @@
-
-<div style="margin-top:55px; padding-top:55px;" class="container-fluid text-sm-center p-5 bg-info text-white "> <!-- bg-light is background color & p-5 is padding -->
-    <h1 class="display-2">Weather in Wroclaw</h1>
-    <p class="lead">In this place will be forecast for my city - Wroclaw!</p>
+<div style="margin-top:55px; padding-top:55px;" class="container-fluid text-sm-center p-5 bg-info text-white ">
+  <% if @weather_data %>
+    <h1 class="display-2"><%= @weather_data["main"]["temp"] %>°C</h1>
+    <p class="lead">Pogoda w <%= @weather_data['name'] %></p>
+    <p>Warunki atmosferyczne: <%= @weather_data['weather'].first['description'] %></p>
+    <p>Ciśnienie: <%= @weather_data['main']['pressure'] %> hPa</p>
+    <p>Wilgotność: <%= @weather_data['main']['humidity'] %>%</p>
+    <p>Prędkość wiatru: <%= @weather_data['wind']['speed'] %> m/s</p>
+    <img src="https://openweathermap.org/img/w/<%= @weather_data['weather'].first['icon'] %>.png" alt="Pogoda">
+  <% else %>
+    <h1 class="display-2">Brak danych</h1>
+    <p class="lead">Wprowadź nazwę miasta, aby sprawdzić pogodę.</p>
+  <% end %>
 </div>
+<br/>
+
+
